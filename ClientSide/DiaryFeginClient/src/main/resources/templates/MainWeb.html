@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="../static/css/MainWeb.css">
+	</head>
+	<body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <a class="active" th:href="@{/Profile}">Profile</a>
+      <a th:href="@{/Diary}">Diary</a>
+      <a th:href="@{/Setting}">Settings</a>
+      <a th:href="@{/Logout}">Logout</a>
+    </div>
+    
+    <!-- Main content -->
+    <div style="padding: 16px">
+      <h1>Welcome to my website!</h1>
+      <p>Let create and write diary to store the beautiful memory...</p>
+    </div>
+  </body>
+</html>

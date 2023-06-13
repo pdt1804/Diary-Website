@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+    <div class="navbar">
+        <a class="active" th:href="@{/Profile}">Profile</a>
+        <a th:href="@{/Diary}">Diary</a>
+        <a th:href="@{/Setting}">Settings</a>
+        <a th:href="@{/Logout}">Logout</a>
+    </div>
+	<div class="form">
+		<div class="path">
+			<h4><a th:href="@{/MainWeb}">Home</a>-><a th:href="@{/Profile}">Profile</a></h2>
+		</div>
+		<div class="title">
+			<h1>Profile Account</h1>
+		</div>
+		<div class="inputform">
+			<Form method="post" th:action="@{/UpdateWriter}" th:object="${currentWriter}">
+				<div class="input">
+					<label>Username: </label>
+					<input type="text" placeholder="username" th:field="*{Username}" readonly/> 
+				</div>
+				<div class="input">
+					<label>Email: </label>
+					<input type="email" placeholder="email" th:field="*{Email}"/>
+				</div>
+				<div class="input">
+					<label>Full name: </label>
+					<input type="text" placeholder="fulname" th:field="*{fulName}"/>
+				</div>
+				<div class="input">
+					<label>Phone number: </label>
+					<input type="text" placeholder="phone number" th:field="*{phoneNumber}"/>
+				</div>
+				<div class="SignUp">
+					<Input type="submit" Value="Update"/>
+				</div>
+			</Form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="navbar">
+        <a class="active" th:href="@{/Profile}">Profile</a>
+        <a th:href="@{/Diary}">Diary</a>
+        <a th:href="@{/Setting}">Settings</a>
+        <a th:href="@{/Logout}">Logout</a>    
+    </div>
+     <div class="form">
+		<div class="path">
+			<h4><a th:href="@{/MainWeb}">Home</a>-><a th:href="@{/Diary}">Diary</a>-><a th:href="@{/Diary/WriteDiary}">WriteDiary</a></h2>
+		</div>
+		<div class="title">
+			<h1>Write Diary</h1>
+		</div>
+		<div class="formWrite">
+			<form method="post" th:action="@{/Diary/WriteDiary/{id}(id=${selectedDiary.ID})}" th:object="${selectedDiary}">
+				<div class="inputGroup">
+					<label>ID Diary</label>
+					<input type="text" th:field="*{ID}" readonly>
+				</div>
+				<div class="inputGroup">
+					<label>Header</label>
+					<input type="text" th:field="*{Header}">
+				</div>
+				<div class="inputGroup">
+					<label>Content</label> <br>
+					<textarea th:field="*{Content}"></textarea>
+				</div>
+				<div class="inputGroup">
+					<label>Mark Up</label>
+					<input type="checkbox" th:field="*{Markup}">
+				</div>
+				<div class="submit">
+					<input type="submit" value="Update">
+				</div>
+			</form>
+		</div>
+		<div class="DeleteDiary">
+			<h1>Delete diary</h1>
+			<form method="get" th:action="@{/Diary/DeleteDiary/{id}(id=${selectedDiary.ID})}" th:object="${selectedDiary}">
+				<div class="submit">
+					<input type="submit" value="Delete">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

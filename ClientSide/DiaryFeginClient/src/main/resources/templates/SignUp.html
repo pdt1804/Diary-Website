@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Create Account</title>
+<link rel="stylesheet" th:href="@{../css/SignUp.css}" />
+</head>
+<body>
+	<div class="form">
+		<div class="title">
+			<h1>Create Account</h1>
+		</div>
+		<div class="inputform">
+			<Form method="post" th:action="@{/SignUp}" th:object="${createWriter}">
+				<div th:if="${msgSignUp}">
+					<h4 th:text="${msgSignUp}"></h4>
+				</div>
+				<div class="input">
+					<label>Username: </label>
+					<input type="text" placeholder="username" th:field="*{Username}"/>
+				</div>
+				<div class="input">
+					<label>Password: </label>
+					<input type="password" placeholder="password" th:field="*{Password}"/>
+				</div>
+				<div class="input">
+					<label>Email: </label>
+					<input type="email" placeholder="email" th:field="*{Email}"/>
+				</div>
+				<div class="input">
+					<label>Full name: </label>
+					<input type="text" placeholder="fulname" th:field="*{fulName}"/>
+				</div>
+				<div class="input">
+					<label>Phone number: </label>
+					<input type="text" placeholder="phone number" th:field="*{phoneNumber}"/>
+				</div>
+				<div class="Register">
+					<a th:href="@{/}">Click here to sign in</a>
+				</div>
+				<div class="SignUp">
+					<Input type="submit" Value="Create"/>
+				</div>
+			</Form>
+		</div>
+	</div>
+</body>
+</html>

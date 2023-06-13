@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../static/css/Diary.css"/>
+</head>
+<body>
+	<div class="navbar">
+        <a class="active" th:href="@{/Profile}">Profile</a>
+        <a th:href="@{/Diary}">Diary</a>
+        <a th:href="@{/Setting}">Settings</a>
+        <a th:href="@{/Logout}">Logout</a>    
+    </div>
+     <div class="form">
+		<div class="path">
+			<h4><a th:href="@{/MainWeb}">Home</a>-><a th:href="@{/Diary}">Diary</a></h2>
+		</div>
+		<div class="title">
+			<h1>List Diaries</h1>
+		</div>
+		<div>
+			<table>
+			  <thead>
+			  	<a th:href="@{/Diary/CreateDiary}">Create new Diary</a>
+			    <tr>
+			      <th>Recent Time</th>
+			      <th>Header</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr th:each="diary: ${listDiaries}">
+			      <td>
+			      	<a th:href="@{/Diary/WriteDiary/{id}(id = ${diary.ID})}" th:text="${diary.DateWrittenOrUpdated.getDate()} + '/' + ${diary.DateWrittenOrUpdated.getMonth() + 1} + ' - ' + ${diary.DateWrittenOrUpdated.getHours()} + ':' +  ${diary.DateWrittenOrUpdated.getMinutes()}"></a>
+			      </td>
+			      <td>
+			      	<a th:href="@{/Diary/WriteDiary/{id}(id = ${diary.ID})}" th:text="${diary.Header}"></a>
+			      </td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

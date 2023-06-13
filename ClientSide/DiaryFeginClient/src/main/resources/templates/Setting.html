@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="navbar">
+        <a class="active" th:href="@{/Profile}">Profile</a>
+        <a th:href="@{/Diary}">Diary</a>
+        <a th:href="@{/Setting}">Settings</a>
+        <a th:href="@{/Logout}">Logout</a>    
+    </div>
+    <div class="form">
+		<div class="path">
+			<h4><a th:href="@{/MainWeb}">Home</a>-><a th:href="@{/Setting}">Setting</a></h2>
+		</div>
+		<div class="title">
+			<h1>Change Password</h1>
+		</div>
+		<div class="inputform">
+			<Form method="post" th:action="@{/ChangePassword}" th:object="${changePassword}">
+				<div class="input">
+					<label>Current Password: </label>
+					<input type="password" placeholder="current password" th:field="*{currentPassword}"/>
+				</div>
+				<div class="input">
+					<label>New Password: </label>
+					<input type="password" placeholder="new password" th:field="*{newPassword}"/>
+				</div>
+				<div class="input">
+					<label>Verify New Password: </label>
+					<input type="password" placeholder="verify new password" th:field="*{verifyNewPassword}"/>
+				</div>
+				<div th:if="${msg}">
+					<h3 th:text="${msg}"></h3>
+				</div>
+				<div class="SignUp">
+					<Input type="submit" Value="Change"/>
+				</div>
+			</Form>
+			<div class="Deleteform">
+			<div class="Title">
+				<h1>Delete Account</h1>
+			</div>
+			<Form method="get" th:action="@{/DeleteUser}">
+				<div class="ButtonDelete">
+					<Input type="submit" Value="Delete"/>
+				</div>
+			</Form>
+		</div>
+	</div>
+</body>
+</html>
