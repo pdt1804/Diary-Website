@@ -1,3 +1,3 @@
-If you want to run this project, let do two things: 
-- Firstly, Changing the application.resource file to compatible with your host/computer.
+If you want to run this project, let do 2 things: 
+- Firstly, Changing the application.properties in server side file to compatible with your host/computer.
 - Secondly, Running the server side before running the client.
