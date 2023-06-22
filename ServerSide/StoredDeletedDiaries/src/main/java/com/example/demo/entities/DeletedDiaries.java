@@ -15,9 +15,16 @@ public class DeletedDiaries {
 	private String Username;
 	private String Header;
 	private Date dateDeleted;
+	private Date LastEdited;
 	private String Content;
 	public int getID() {
 		return ID;
+	}
+	public Date getLastEdited() {
+		return LastEdited;
+	}
+	public void setLastEdited(Date lastEdited) {
+		LastEdited = lastEdited;
 	}
 	public void setID(int iD) {
 		ID = iD;
@@ -46,12 +53,13 @@ public class DeletedDiaries {
 	public void setContent(String content) {
 		Content = content;
 	}
-	public DeletedDiaries(int iD, String username, String header, Date dateDeleted, String content) {
+	public DeletedDiaries(int iD, String username, String header, Date dateDeleted, Date lastEdited, String content) {
 		super();
 		ID = iD;
 		Username = username;
 		Header = header;
 		this.dateDeleted = dateDeleted;
+		LastEdited = lastEdited;
 		Content = content;
 	}
 	public DeletedDiaries() 

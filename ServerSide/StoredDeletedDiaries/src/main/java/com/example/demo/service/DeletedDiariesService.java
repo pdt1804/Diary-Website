@@ -45,5 +45,14 @@ public class DeletedDiariesService {
 		deletedDiariesRepo.save(deletedDiaries);
 	}
 
+	public void recoverDiary(DeletedDiaries deletedDiaries)
+	{
+		deletedDiariesRepo.delete(deletedDiaries);
+	}
+	
+	public void DeletedPermanently(DeletedDiaries deletedDiary)
+	{
+		deletedDiariesRepo.delete(deletedDiary);
+	}
 
 }
