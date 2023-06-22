@@ -93,6 +93,14 @@ public class Diary {
 		Markup = markup;
 		this.writer = writer;
 	}
+	
+	public Diary(String header, Date dateWrittenOrUpdated, String content, Writer writer) {
+		super();
+		Header = header;
+		DateWrittenOrUpdated = dateWrittenOrUpdated;
+		Content = content;
+		this.writer = writer;
+	}
 
 
 

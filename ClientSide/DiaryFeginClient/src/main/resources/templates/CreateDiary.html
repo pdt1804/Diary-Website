@@ -3,11 +3,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/CreateDiary.css}">
 </head>
 <body>
 	<div class="navbar">
-        <a class="active" th:href="@{/Profile}">Profile</a>
-        <a th:href="@{/Diary}">Diary</a>
+        <a th:href="@{/Profile}">Profile</a>
+        <a class="active" th:href="@{/Diary}">Diary</a>
         <a th:href="@{/Setting}">Settings</a>
         <a th:href="@{/Logout}">Logout</a>    
     </div>
@@ -18,21 +19,17 @@
 		<div class="title">
 			<h1>Write Diary</h1>
 		</div>
-		<div class="formWrite">
+		<div class="inputform">
 			<form method="post" th:action="@{/Diary/CreateDiary}" th:object="${newDiary}">
-				<div class="inputGroup">
+				<div class="input">
 					<label>Header</label>
 					<input type="text" th:field="*{Header}">
 				</div>
-				<div class="inputGroup">
+				<div>
 					<label>Content</label> <br>
 					<textarea th:field="*{Content}"></textarea>
 				</div>
-				<div class="inputGroup">
-					<label>Mark Up</label>
-					<input type="checkbox" th:field="*{Markup}">
-				</div>
-				<div class="submit">
+				<div class="input">
 					<input type="submit" value="Create">
 				</div>
 			</form>

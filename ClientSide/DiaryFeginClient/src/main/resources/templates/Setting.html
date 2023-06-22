@@ -3,12 +3,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" th:href="@{../css/Setting.css}">
 </head>
 <body>
 	<div class="navbar">
-        <a class="active" th:href="@{/Profile}">Profile</a>
+        <a th:href="@{/Profile}">Profile</a>
         <a th:href="@{/Diary}">Diary</a>
-        <a th:href="@{/Setting}">Settings</a>
+        <a class="active" th:href="@{/Setting}">Settings</a>
         <a th:href="@{/Logout}">Logout</a>    
     </div>
     <div class="form">

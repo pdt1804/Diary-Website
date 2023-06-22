@@ -3,12 +3,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../static/css/Diary.css"/>
+<link rel="stylesheet" th:href="@{../css/Diary.css}"/>
 </head>
 <body>
 	<div class="navbar">
-        <a class="active" th:href="@{/Profile}">Profile</a>
-        <a th:href="@{/Diary}">Diary</a>
+        <a th:href="@{/Profile}">Profile</a>
+        <a class="active" th:href="@{/Diary}">Diary</a>
         <a th:href="@{/Setting}">Settings</a>
         <a th:href="@{/Logout}">Logout</a>    
     </div>
@@ -22,19 +22,20 @@
 		<div>
 			<table>
 			  <thead>
-			  	<a th:href="@{/Diary/CreateDiary}">Create new Diary</a>
+			  	<a class="createDiary" th:href="@{/Diary/CreateDiary}">Create new diary</a>
+			  	<a class="recoverDiary" th:href="@{/Diary/RecoverDiary}">Recover deleted diary</a>
 			    <tr>
-			      <th>Recent Time</th>
-			      <th>Header</th>
+			      <th class="colDate">Recent Time</th>
+			      <th class="colHeader">Header</th>
 			    </tr>
 			  </thead>
-			  <tbody>
+			  <tbody class="tBody">
 			    <tr th:each="diary: ${listDiaries}">
 			      <td>
-			      	<a th:href="@{/Diary/WriteDiary/{id}(id = ${diary.ID})}" th:text="${diary.DateWrittenOrUpdated.getDate()} + '/' + ${diary.DateWrittenOrUpdated.getMonth() + 1} + ' - ' + ${diary.DateWrittenOrUpdated.getHours()} + ':' +  ${diary.DateWrittenOrUpdated.getMinutes()}"></a>
+			      	<a class ="date" th:href="@{/Diary/WriteDiary/{id}(id = ${diary.ID})}" th:text="${diary.DateWrittenOrUpdated.getDate()} + '/' + ${diary.DateWrittenOrUpdated.getMonth() + 1} + ' - ' + ${diary.DateWrittenOrUpdated.getHours()} + ':' +  ${diary.DateWrittenOrUpdated.getMinutes()}"></a>
 			      </td>
 			      <td>
-			      	<a th:href="@{/Diary/WriteDiary/{id}(id = ${diary.ID})}" th:text="${diary.Header}"></a>
+			      	<a class ="header" th:href="@{/Diary/WriteDiary/{id}(id = ${diary.ID})}" th:text="${diary.Header}"></a>
 			      </td>
 			    </tr>
 			  </tbody>

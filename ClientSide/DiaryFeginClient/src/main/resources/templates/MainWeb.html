@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Insert title here</title>
-		<link rel="stylesheet" href="../static/css/MainWeb.css">
+		<link rel="stylesheet" th:href="@{../css/MainWeb.css}">
 	</head>
 	<body>
     <!-- Navbar -->
@@ -11,7 +11,9 @@
       <a class="active" th:href="@{/Profile}">Profile</a>
       <a th:href="@{/Diary}">Diary</a>
       <a th:href="@{/Setting}">Settings</a>
-      <a th:href="@{/Logout}">Logout</a>
+      <div class="LogOut">
+      	<a th:href="@{/Logout}">Logout</a>
+      </div>
     </div>
     
     <!-- Main content -->

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{../css/RecoverDiary.css}"/>
+</head>
+<body>
+	<div class="navbar">
+        <a th:href="@{/Profile}">Profile</a>
+        <a class="active" th:href="@{/Diary}">Diary</a>
+        <a th:href="@{/Setting}">Settings</a>
+        <a th:href="@{/Logout}">Logout</a>    
+    </div>
+     <div class="form">
+		<div class="path">
+			<h4><a th:href="@{/MainWeb}">Home</a>-><a th:href="@{/Diary}">Diary</a>-><a th:href="@{/Diary/RecoverDiary}">Recover Diary</a></h2>
+		</div>
+		<div class="title">
+			<h1>List deleted diaries</h1>
+		</div>
+		<div>
+			<table>
+			  <thead>
+			    <tr>
+			      <th class="colDate">Deleted Time</th>
+			      <th class="colHeader">Header</th>
+			    </tr>
+			  </thead>
+			  <tbody class="tBody">
+			    <tr th:each="diary: ${ListDeletedDiary}">
+			      <td>
+			      	<a class ="date" th:href="@{/Diary/RecoverDiary/{id}(id = ${diary.ID})}" th:text="${diary.dateDeleted.getDate()} + '/' + ${diary.dateDeleted.getMonth() + 1} + ' - ' + ${diary.dateDeleted.getHours()} + ':' +  ${diary.dateDeleted.getMinutes()}"></a>
+			      </td>
+			      <td>
+			      	<a class ="header" th:href="@{/Diary/RecoverDiary/{id}(id = ${diary.ID})}" th:text="${diary.Header}"></a>
+			      </td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

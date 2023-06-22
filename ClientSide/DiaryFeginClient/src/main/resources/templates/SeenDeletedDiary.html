@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" th:href="@{/css/WriteDiary.css}">
+<link rel="stylesheet" th:href="@{/css/SeenDeletedDiary.css}">
 </head>
 <body>
 	<div class="navbar">
@@ -14,20 +14,20 @@
     </div>
      <div class="form">
 		<div class="path">
-			<h4><a th:href="@{/MainWeb}">Home</a>-><a th:href="@{/Diary}">Diary</a>-><a th:href="@{/Diary/WriteDiary}">WriteDiary</a></h2>
+			<h4><a th:href="@{/MainWeb}">Home</a>-><a th:href="@{/Diary}">Diary</a>-><a th:href="@{/Diary/RecoverDiary}">RecoverDiary</a>-><a th:href="@{/Diary/RecoverDiary/SeenDeletedDiary}">SeenDeletedDiary</a></h2>
 		</div>
 		<div class="title">
-			<h1>Write Diary</h1>
+			<h1>Recover Diary</h1>
 		</div>
 		<div class="ButtonDelete">
-			<form method="get" th:action="@{/Diary/DeleteDiary/{id}(id=${selectedDiary.ID})}" th:object="${selectedDiary}">
+			<form method="get" th:action="@{/Diary/RecoverDiary/SeenDeletedDiary/DeletedPermanently/{id}(id=${selectedDiary.ID})}" th:object="${selectedDiary}">
 				<div>
-					<input type="submit" value="Delete">
+					<input type="submit" value="Delete Permanently">
 				</div>
 			</form>
 		</div>
 		<div class="inputform">
-			<form method="post" th:action="@{/Diary/WriteDiary/{id}(id=${selectedDiary.ID})}" th:object="${selectedDiary}">
+			<form method="post" th:action="@{/Diary/RecoverDiary/Recover/{id}(id=${selectedDiary.ID})}" th:object="${selectedDiary}">
 				<div class="input">
 					<label>ID Diary</label>
 					<input type="text" th:field="*{ID}" readonly>
@@ -41,7 +41,7 @@
 					<textarea th:field="*{Content}"></textarea>
 				</div>
 				<div class="submit">
-					<input type="submit" value="Update">
+					<input type="submit" value="Recover">
 				</div>
 			</form>
 		</div>
